@@ -88,6 +88,11 @@ export default {
 	font-size: 14px;
 }
 
+.btn-danger {
+	font-size: 14px;
+	margin-left: 10px;
+}
+
 .action a {
 	font-size: 14px;
 	color: gray;

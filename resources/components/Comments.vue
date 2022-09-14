@@ -20,6 +20,9 @@ export default {
   computed: {
     getComments() {
       return store.getters.comments
+    },
+		getReply() {
+      return store.getters.reply
     }
   },
   components: {
@@ -46,7 +49,7 @@ export default {
   <post></post>
   <Loader v-if="loading"></Loader>
   <comment :comment="comment" v-for="comment in getComments"></comment>
-  <commentForm :id="id" :model="model"></commentForm>
+  <commentForm :id="id" :model="model" v-if="getReply === 0"></commentForm>
 </template>
 
 <style>

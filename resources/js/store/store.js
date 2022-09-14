@@ -29,11 +29,12 @@ const store = createStore({
     },
     ADD_COMMENT (state, comment) {
       if (comment.reply) {
-        let c = state.comments.find((c) => c.id === comment.reply)
-        if (c.repiles === undefined) {
-          c.repiles = []
+        const c = state.comments.find((c) => c.id === comment.reply)
+        if (c.replies === undefined) {
+          c.replies = []
         }
-        c.repiles.push(comment)
+        c.replies.push(comment)
+        
       }else {
         state.comments.push(comment)
       }

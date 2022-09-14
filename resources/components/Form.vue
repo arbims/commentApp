@@ -31,12 +31,14 @@ export default {
         commentable_type: this.model,
         username: this.username,
         email: this.email,
-        content: this.email,
+        content: this.content,
         reply: this.reply
       };
       axios.post("http://localhost:8000/comments.json", commentData, { headers: { "X-CSRF-Token": csrfToken } }).then((response) => {
+        console.log(response)
         store.dispatch("addComment", response.data.comment);
         this.viderForm();
+        //this.replyComment(0)
       }).catch((response) => {
         this.loading = false
         this.errors = response.response.data.errors;

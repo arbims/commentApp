@@ -96,7 +96,7 @@ class CommentsTable extends Table
         $comments = [];
         $by_id = [];
         foreach ($records as $record) {
-            if ($record->reply == 1) {
+            if ($record->reply) {
                 $by_id[$record->reply]->replies[] = $record;
             } else {
                 $record->replies = [];

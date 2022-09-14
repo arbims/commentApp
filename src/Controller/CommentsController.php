@@ -11,14 +11,12 @@ class CommentsController extends AppController {
     }
 
     public function index() {
-        sleep(1);
         $comments = $this->Comments->allFor($this->request->getQuery('id'), $this->request->getQuery('type'));
         $this->set(compact('comments'));
         $this->viewBuilder()->setOption('serialize', ['comments']);
     }
 
     public function add() {
-        sleep(3);
         $data = $this->request->input('json_decode', true);
         if ($this->Comments->isCommentable($data['commentable_id'],$data['commentable_type'] )){
             $data['ip'] = $this->request->clientIp();
@@ -44,8 +42,6 @@ class CommentsController extends AppController {
     }
 
     public function delete($id) {
-        //dd($this->request->getAttribute('csrfToken'));
-        //dd($id);
         $comment = $this->Comments->get($id);
         $this->Comments->delete($comment);
         $this->set('comment', $comment);
