@@ -38,7 +38,7 @@ export default {
         console.log(response)
         store.dispatch("addComment", response.data.comment);
         this.viderForm();
-        //this.replyComment(0)
+        this.replyComment(0)
       }).catch((response) => {
         this.loading = false
         this.errors = response.response.data.errors;

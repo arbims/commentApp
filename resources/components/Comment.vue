@@ -49,7 +49,7 @@ export default {
 				
 				<div class="comments">
 					<comment :comment="comment" v-for="comment in comment.replies" ></comment>
-					<commentForm :id="comment.commentable_id" :model="comment.commentable_type" :reply="comment.id" v-if="formVisible"></commentForm>
+					<commentForm :id="comment.commentable_id" :model="comment.commentable_type" :reply="comment.reply" v-if="formVisible"></commentForm>
 				</div>
 			</div>
 		</div>
