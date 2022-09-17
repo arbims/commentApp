@@ -43,7 +43,7 @@ export default {
 						{{comment.content}}
 					</div>
 					<div class="action">
-						<a href="#" @click.prevent="replyComment(comment.reply == 0  ? comment.id : comment.reply)">Repondre</a>
+						<a href="#" @click.prevent="replyComment(comment.reply = comment.id)">Repondre</a>
 					</div>
 				</div>
 				
