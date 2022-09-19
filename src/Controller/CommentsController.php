@@ -17,6 +17,7 @@ class CommentsController extends AppController {
     }
 
     public function add() {
+        sleep(1);
         $data = $this->request->input('json_decode', true);
         if ($this->Comments->isCommentable($data['commentable_id'],$data['commentable_type'] )){
             $data['ip'] = $this->request->clientIp();
@@ -42,6 +43,7 @@ class CommentsController extends AppController {
     }
 
     public function delete($id) {
+        sleep(1);
         $comment = $this->Comments->get($id);
         $this->Comments->delete($comment);
         $this->set('comment', $comment);

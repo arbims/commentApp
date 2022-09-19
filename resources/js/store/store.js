@@ -21,6 +21,9 @@ const store = createStore({
     },
     replyTo (context, id) {
       context.commit('REPLY_TO', id)  
+    },
+    deleteComment(context, comment) {
+      context.commit('DELETE_COMMENT', comment)
     }
   },
   mutations: {
@@ -42,7 +45,7 @@ const store = createStore({
     DELETE_COMMENT (state, comment) {
       if (comment.reply) {
         let parent = state.comments.find((c) => c.id === comment.reply)
-        let index = parent.replies.comments.findIndex((c) => c.id === comment.id)
+        let index = parent.replies.findIndex((c) => c.id === comment.id)
         parent.replies.splice(index, 1)
       }else {
         let index = state.comments.findIndex((c) => c.id === comment.id)
