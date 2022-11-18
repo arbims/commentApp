@@ -45,6 +45,8 @@ class CommentsController extends AppController {
     public function delete($id) {
         sleep(1);
         $comment = $this->Comments->get($id);
+        $associated_comments = $this->Comments->find()->where(['reply' => $comment->id]);
+        $this->Comments->deleteMany($associated_comments);
         $this->Comments->delete($comment);
         $this->set('comment', $comment);
         $this->viewBuilder()->setOption('serialize', ['comment']);
