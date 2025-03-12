@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-use Migrations\AbstractSeed;
+use Migrations\BaseSeed;
 
 /**
  * Posts seed.
  */
-class PostsSeed extends AbstractSeed
+class PostsSeed extends BaseSeed
 {
     /**
      * Run Method.
@@ -18,7 +18,7 @@ class PostsSeed extends AbstractSeed
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $table = $this->table('posts');
         $data = [

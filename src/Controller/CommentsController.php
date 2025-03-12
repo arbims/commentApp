@@ -2,12 +2,13 @@
 
 namespace App\Controller;
 
+use Cake\View\JsonView;
+
 class CommentsController extends AppController {
 
-    public function initialize(): void
+    public function viewClasses(): array
     {
-        parent::initialize();
-        $this->loadComponent('RequestHandler');
+        return [JsonView::class];
     }
 
     public function index() {
@@ -18,7 +19,7 @@ class CommentsController extends AppController {
 
     public function add() {
         sleep(1);
-        $data = $this->request->input('json_decode', true);
+        $data = $this->request->getData();
         if ($this->Comments->isCommentable($data['commentable_id'],$data['commentable_type'] )){
             $data['ip'] = $this->request->clientIp();
             $comment = $this->Comments->newEmptyEntity();
